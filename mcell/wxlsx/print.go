@@ -3,7 +3,7 @@ package wxlsx
 import (
 	"fmt"
 
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // PrintSheet utils

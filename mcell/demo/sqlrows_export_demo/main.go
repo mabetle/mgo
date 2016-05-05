@@ -2,8 +2,8 @@ package main
 
 import (
 	"mabetle/libs/hubs"
-	"github.com/mabetle/mcell/wxlsx"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mcell/wxlsx"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (

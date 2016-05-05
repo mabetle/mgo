@@ -2,9 +2,9 @@ package mmodel
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mcore/mtag"
-	"github.com/mabetle/govendors/uuid"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mtag"
+	"github.com/mabetle/mgo/govendors/uuid"
 	"reflect"
 )
 

@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/mabetle/mcore/mrun"
+	"github.com/mabetle/mgo/mcore/mrun"
 )
 
 func AddFunc(fn func(), args ... string ){

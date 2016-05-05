@@ -3,8 +3,8 @@ package main
 import (
 	"mabetle/libs/dbc"
 	"mabetle/libs/wage_record/models"
-	"github.com/mabetle/mcell/wxlsx"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mcell/wxlsx"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (

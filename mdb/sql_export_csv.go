@@ -1,7 +1,7 @@
 package mdb
 
 import (
-	"github.com/mabetle/mcsv"
+	"github.com/mabetle/mgo/mcsv"
 )
 
 // ExportCsv

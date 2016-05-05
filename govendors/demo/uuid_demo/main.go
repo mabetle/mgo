@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mabetle/govendors/uuid"
+	"github.com/mabetle/mgo/govendors/uuid"
 )
 
 func main() {

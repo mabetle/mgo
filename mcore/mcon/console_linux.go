@@ -1,7 +1,7 @@
 package mcon
 
 import (
-	"github.com/mabetle/mcore/mterm"
+	"github.com/mabetle/mgo/mcore/mterm"
 )
 
 // implments for ColorPriter

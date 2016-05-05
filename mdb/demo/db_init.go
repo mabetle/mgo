@@ -2,7 +2,7 @@ package demo
 
 
 import (
-	"github.com/mabetle/mdb"
+	"github.com/mabetle/mgo/mdb"
 )
 
 var(

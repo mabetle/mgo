@@ -2,8 +2,8 @@ package mrun
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mmsg"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mmsg"
 )
 
 // run all runners and funcs

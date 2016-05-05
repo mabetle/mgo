@@ -2,7 +2,7 @@ package demo
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/msdb"
+	"github.com/mabetle/mgo/mcore/msdb"
 )
 
 func DemoRandomAccessTable(table msdb.RandomAccessTable){

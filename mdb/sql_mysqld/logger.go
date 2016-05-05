@@ -1,10 +1,10 @@
 package sql_mysqld
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var(
-	logger = mlog.GetLogger("github.com/mabetle/mdb/sql_mysqld")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mdb/sql_mysqld")
 )
 

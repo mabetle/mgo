@@ -1,7 +1,7 @@
 package mcore_test
 
 import (
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 	"testing"
 )
 

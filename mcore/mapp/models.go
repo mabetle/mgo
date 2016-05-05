@@ -2,8 +2,8 @@ package mapp
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mdb"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mdb"
 	"strings"
 )
 

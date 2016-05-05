@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/mabetle/mlog"
-	. "github.com/mabetle/mdb/demo/models"
-	"github.com/mabetle/mdb/sql_mysqld"
-	"github.com/mabetle/mdb/xorm_mysqld"
+	"github.com/mabetle/mgo/mlog"
+	. "github.com/mabetle/mgo/mdb/demo/models"
+	"github.com/mabetle/mgo/mdb/sql_mysqld"
+	"github.com/mabetle/mgo/mdb/xorm_mysqld"
 )
 
 var (

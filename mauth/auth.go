@@ -2,7 +2,7 @@ package mauth
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 	"strings"
 )
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mabetle/mdb/sql_mysqld"
+	"github.com/mabetle/mgo/mdb/sql_mysqld"
 )
 
 

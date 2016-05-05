@@ -3,7 +3,7 @@ package mdb
 import (
 	"fmt"
 	"github.com/go-xorm/xorm"
-	"github.com/mabetle/mcore/mmodel"
+	"github.com/mabetle/mgo/mcore/mmodel"
 )
 
 // Xorm extends xorm.Engine and mdb.Sql.

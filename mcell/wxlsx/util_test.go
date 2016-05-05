@@ -1,7 +1,7 @@
 package wxlsx
 
 import (
-	"github.com/mabetle/mcore/mtest"
+	"github.com/mabetle/mgo/mcore/mtest"
 	"testing"
 )
 

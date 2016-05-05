@@ -1,7 +1,7 @@
 package mauth_test
 
 import (
-	"github.com/mabetle/mauth"
+	"github.com/mabetle/mgo/mauth"
 	"testing"
 )
 

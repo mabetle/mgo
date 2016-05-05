@@ -2,13 +2,13 @@ package xlsxsdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcell/wxlsx"
-	"github.com/mabetle/mcore/msdb"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mcell/wxlsx"
+	"github.com/mabetle/mgo/mcore/msdb"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcell/xlsxsdb")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcell/xlsxsdb")
 )
 
 // XlsxTable implements msdb.SimpleTable

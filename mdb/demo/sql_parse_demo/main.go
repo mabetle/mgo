@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/mabetle/mdb"
+	"github.com/mabetle/mgo/mdb"
 )
 
 func demo(){

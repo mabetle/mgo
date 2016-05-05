@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/mabetle/mdb"
-	"github.com/mabetle/mdb/demo"
+	"github.com/mabetle/mgo/mdb"
+	"github.com/mabetle/mgo/mdb/demo"
 	"mabetle/libs/hubs"
 )
 

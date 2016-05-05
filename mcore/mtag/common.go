@@ -1,9 +1,9 @@
 package mtag
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcore/mtag")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcore/mtag")
 )

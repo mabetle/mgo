@@ -2,8 +2,8 @@ package main
 
 
 import (
-	"github.com/mabetle/mdb/sqlited"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mdb/sqlited"
+	"github.com/mabetle/mgo/mlog"
 	"fmt"
 )
 

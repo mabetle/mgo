@@ -2,8 +2,8 @@ package csvsdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/msdb"
-	"github.com/mabetle/mcsv"
+	"github.com/mabetle/mgo/mcore/msdb"
+	"github.com/mabetle/mgo/mcsv"
 )
 
 type CsvTable struct {

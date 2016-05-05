@@ -5,8 +5,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mcore/mcon"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mcon"
 	"os"
 	"strings"
 )

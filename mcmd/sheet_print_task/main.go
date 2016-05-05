@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mabetle/mcell/wxlsx"
+	"github.com/mabetle/mgo/mcell/wxlsx"
 )
 
 func main() {

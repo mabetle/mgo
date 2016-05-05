@@ -2,7 +2,7 @@ package msdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // BaseTable SmipleTable base

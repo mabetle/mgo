@@ -1,7 +1,7 @@
 package mrun
 
 import (
-	"github.com/mabetle/mmsg"
+	"github.com/mabetle/mgo/mmsg"
 )
 
 // load i18n message for applicatin.

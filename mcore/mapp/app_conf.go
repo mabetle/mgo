@@ -2,8 +2,8 @@ package mapp
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mcore/mconf/ini"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mconf/ini"
 	"os"
 )
 

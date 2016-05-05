@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mabetle/mcore/mcon"
+	"github.com/mabetle/mgo/mcore/mcon"
 )
 
 const (

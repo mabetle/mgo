@@ -1,8 +1,8 @@
 package mconf
 
 import (
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mcore/mtest"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mtest"
 	"testing"
 )
 

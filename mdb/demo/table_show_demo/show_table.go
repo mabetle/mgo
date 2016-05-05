@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"database/sql"
 	"fmt"
-	"github.com/mabetle/mdb/sql_mysqld"
+	"github.com/mabetle/mgo/mdb/sql_mysqld"
 )
 
 func checkError(err error){

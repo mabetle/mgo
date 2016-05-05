@@ -3,7 +3,7 @@ package mdb
 import (
 	"database/sql"
 	"fmt"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // Sql wrap sqlDB and provide many functions.

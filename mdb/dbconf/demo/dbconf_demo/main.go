@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/mabetle/mdb/dbconf"
+	"github.com/mabetle/mgo/mdb/dbconf"
 )
 
 func DemoConf(conf *dbconf.DBConf) {

@@ -2,8 +2,8 @@ package sqlsdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/msdb"
-	"github.com/mabetle/mdb"
+	"github.com/mabetle/mgo/mcore/msdb"
+	"github.com/mabetle/mgo/mdb"
 )
 
 //implement for msdb.SimpleTable

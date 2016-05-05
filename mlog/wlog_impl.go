@@ -1,8 +1,8 @@
 package mlog
 
 import (
-	"github.com/mabetle/mlog/logapi"
-	"github.com/mabetle/mlog/wlog"
+	"github.com/mabetle/mgo/mlog/logapi"
+	"github.com/mabetle/mgo/mlog/wlog"
 )
 
 // GetLogger returns wlog.WrapLogger

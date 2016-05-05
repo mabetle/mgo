@@ -1,12 +1,12 @@
 package mcsv
 
 import (
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcsv")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcsv")
 )
 
 func (csv CSV) Write(file string) {

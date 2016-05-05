@@ -1,8 +1,8 @@
 package dbconf
 
 import (
-	"github.com/mabetle/mcore/mconf"
-	"github.com/mabetle/mcore/mconf/ini"
+	"github.com/mabetle/mgo/mcore/mconf"
+	"github.com/mabetle/mgo/mcore/mconf/ini"
 )
 
 //DBConf

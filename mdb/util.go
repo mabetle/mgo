@@ -2,8 +2,8 @@ package mdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mcore/mmodel"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mmodel"
 	"reflect"
 	"strings"
 )

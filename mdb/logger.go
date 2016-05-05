@@ -1,10 +1,10 @@
 package mdb
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mdb")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mdb")
 )
 

@@ -1,7 +1,7 @@
 package based_test
 
 import (
-	"github.com/mabetle/mauth/based"
+	"github.com/mabetle/mgo/mauth/based"
 	"testing"
 )
 

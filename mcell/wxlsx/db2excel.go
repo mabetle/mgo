@@ -2,8 +2,8 @@ package wxlsx
 
 import (
 	"database/sql"
-	"github.com/mabetle/mcore"
-	"github.com/mabetle/mmsg"
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mmsg"
 	"github.com/tealeg/xlsx"
 )
 

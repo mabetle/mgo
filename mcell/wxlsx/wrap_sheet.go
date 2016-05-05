@@ -1,7 +1,7 @@
 package wxlsx
 
 import (
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 	"github.com/tealeg/xlsx"
 )
 

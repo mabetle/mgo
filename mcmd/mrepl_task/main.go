@@ -5,7 +5,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 	"os"
 	"strings"
 )

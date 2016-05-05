@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/mmodel"
+	"github.com/mabetle/mgo/mcore/mmodel"
 )
 
 type Model struct {

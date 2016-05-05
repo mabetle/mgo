@@ -1,7 +1,7 @@
 package mdb
 
 import (
-	"github.com/mabetle/mcell/wxlsx"
+	"github.com/mabetle/mgo/mcell/wxlsx"
 	"io"
 	"os"
 )

@@ -1,9 +1,9 @@
 package mpasswd
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcore/mpasswd")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcore/mpasswd")
 )

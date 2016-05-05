@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // GetLetterIndex returns Excel Cell ColumnIndex

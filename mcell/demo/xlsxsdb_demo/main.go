@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/mabetle/mcell/xlsxsdb"
-	"github.com/mabetle/mcore/msdb"
-	//"github.com/mabetle/mcore"
-	"github.com/mabetle/mcell/wxlsx"
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mcell/xlsxsdb"
+	"github.com/mabetle/mgo/mcore/msdb"
+	//"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcell/wxlsx"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var(

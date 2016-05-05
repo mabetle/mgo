@@ -1,9 +1,9 @@
 package mvalid
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcore/mvalid")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcore/mvalid")
 )

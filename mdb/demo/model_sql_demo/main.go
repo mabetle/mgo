@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/mabetle/mdb/demo/ioc"
+	"github.com/mabetle/mgo/mdb/demo/ioc"
 	"fmt"
-	. "github.com/mabetle/mdb/demo/models"
+	. "github.com/mabetle/mgo/mdb/demo/models"
 )
 
 

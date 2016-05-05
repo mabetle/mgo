@@ -1,7 +1,7 @@
 package demo
 
 import (
-	"github.com/mabetle/mcore/mrun"
+	"github.com/mabetle/mgo/mcore/mrun"
 )
 
 // AddFunc add func

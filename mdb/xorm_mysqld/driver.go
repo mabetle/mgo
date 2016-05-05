@@ -5,8 +5,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
-	"github.com/mabetle/mdb"
-	"github.com/mabetle/mdb/dbconf"
+	"github.com/mabetle/mgo/mdb"
+	"github.com/mabetle/mgo/mdb/dbconf"
 )
 
 // NewXorm

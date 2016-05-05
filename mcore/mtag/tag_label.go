@@ -1,7 +1,7 @@
 package mtag
 
 import (
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 	"strings"
 )
 

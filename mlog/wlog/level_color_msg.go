@@ -3,7 +3,7 @@ package wlog
 import (
 	"fmt"
 	"github.com/agtorre/gocolorize"
-	"github.com/mabetle/mcore/mterm"
+	"github.com/mabetle/mgo/mcore/mterm"
 )
 
 var (

@@ -1,12 +1,12 @@
 package yaml
 
 import (
-	conf "github.com/mabetle/mcore/mconf"
-	"github.com/mabetle/mlog"
+	conf "github.com/mabetle/mgo/mcore/mconf"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var(
-	logger = mlog.GetLoggerWithCatalog("github.com/mabetle/mcore/mconf/yaml")
+	logger = mlog.GetLoggerWithCatalog("github.com/mabetle/mgo/mcore/mconf/yaml")
 )
 
 type YamlConfig struct{

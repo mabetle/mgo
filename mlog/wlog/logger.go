@@ -3,7 +3,7 @@ package wlog
 import (
 	"fmt"
 
-	"github.com/mabetle/mlog/logapi"
+	"github.com/mabetle/mgo/mlog/logapi"
 )
 
 // WrapLogger .

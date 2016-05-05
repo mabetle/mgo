@@ -2,8 +2,8 @@ package wlog
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/mcon"
-	"github.com/mabetle/mcore/mterm"
+	"github.com/mabetle/mgo/mcore/mcon"
+	"github.com/mabetle/mgo/mcore/mterm"
 	"log"
 	"os"
 	"runtime"

@@ -1,9 +1,9 @@
 package mmodel
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mcore/mmodel")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcore/mmodel")
 )

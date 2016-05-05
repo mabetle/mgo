@@ -1,7 +1,7 @@
 package mmsg
 
 import (
-	"github.com/mabetle/mlog"
+	"github.com/mabetle/mgo/mlog"
 	"github.com/robfig/config"
 )
 
@@ -11,7 +11,7 @@ const (
 )
 
 var (
-	logger = mlog.GetLogger("github.com/mabetle/mmsg")
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mmsg")
 
 	// default message directory
 	MessageFilesDirectory = "messages"

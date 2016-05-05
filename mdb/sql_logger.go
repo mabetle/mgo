@@ -2,7 +2,7 @@ package mdb
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // SqlLogger Log

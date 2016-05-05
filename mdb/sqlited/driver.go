@@ -3,7 +3,7 @@ package sqlited
 import (
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/mabetle/mdb"
+	"github.com/mabetle/mgo/mdb"
 )
 
 // NewSqlDB

@@ -3,7 +3,7 @@ package ini
 import (
 	"fmt"
 	"github.com/robfig/config"
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // IniConfig

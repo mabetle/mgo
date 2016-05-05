@@ -1,8 +1,8 @@
 package sql_mysqld
 
 import (
-	"github.com/mabetle/mdb"
-	"github.com/mabetle/mdb/dbconf"
+	"github.com/mabetle/mgo/mdb"
+	"github.com/mabetle/mgo/mdb/dbconf"
 )
 
 // NewSql

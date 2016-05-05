@@ -1,7 +1,7 @@
 package mtag_test
 
 import (
-	"github.com/mabetle/mcore/mtag"
+	"github.com/mabetle/mgo/mcore/mtag"
 	"testing"
 )
 

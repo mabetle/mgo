@@ -2,7 +2,7 @@ package demo
 
 import (
 	"fmt"
-	"github.com/mabetle/mcore/mconf"
+	"github.com/mabetle/mgo/mcore/mconf"
 )
 
 // Config api Demo

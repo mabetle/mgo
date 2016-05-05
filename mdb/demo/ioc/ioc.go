@@ -2,8 +2,8 @@ package ioc
 
 
 import (
-	"github.com/mabetle/mdb"
-	"github.com/mabetle/mdb/sql_mysqld"
+	"github.com/mabetle/mgo/mdb"
+	"github.com/mabetle/mgo/mdb/sql_mysqld"
 )
 var sqlDB *mdb.Sql
 func GetSql()*mdb.Sql{

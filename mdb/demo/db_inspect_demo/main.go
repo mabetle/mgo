@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/mabetle/mdb/demo/ioc"
+	"github.com/mabetle/mgo/mdb/demo/ioc"
 	"fmt"
-	. "github.com/mabetle/mcore/mtest"
+	. "github.com/mabetle/mgo/mcore/mtest"
 )
 
 var(

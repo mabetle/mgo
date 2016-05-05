@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mabetle/mlog"
-	"github.com/mabetle/mlog/wlog"
+	"github.com/mabetle/mgo/mlog"
+	"github.com/mabetle/mgo/mlog/wlog"
 )
 
 var (

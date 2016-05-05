@@ -1,7 +1,7 @@
 package mconf
 
 import (
-	"github.com/mabetle/mcore"
+	"github.com/mabetle/mgo/mcore"
 )
 
 // KeyValueConfig implements Config interface.

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mabetle/mdb/demo/ioc"
-	"github.com/mabetle/mdb/sqlsdb"
+	"github.com/mabetle/mgo/mdb/demo/ioc"
+	"github.com/mabetle/mgo/mdb/sqlsdb"
 )
 
 var(
