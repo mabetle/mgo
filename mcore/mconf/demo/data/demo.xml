@@ -1,0 +1,4 @@
+<db>
+	<driver>mysql</driver>
+	<host>db.mabetle.com</host>
+</db>

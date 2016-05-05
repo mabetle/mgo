@@ -1,0 +1,32 @@
+
+.git
+
+# Tags
+tag
+TAG
+tags
+TAGS
+
+# generate by go
+*.exe
+tmp
+test-results
+.vendor
+*.log
+
+# Idea for go
+.idea
+
+# temp files
+\#*
+.#*
+*~
+
+# go main out
+**/*_demo/*_demo
+**/*_task/*_task
+**/*_main/*_main
+
+gocomment/gocomment
+
+
