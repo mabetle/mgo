@@ -1,3 +1,2 @@
-// Mabetle Stat Package.
-//
+// Package mstat .
 package mstat

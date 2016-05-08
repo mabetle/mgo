@@ -1,28 +1,33 @@
-// Calc percent values.
+// Package mstat percent values.
 package mstat
 
-// PercentValue, Percentile
+// PercentValue gets values percent
 func PercentValue(values []float64, percent float64) (r float64) {
 
 	return
 }
 
-func Max(values []float64) {
+// Max .
+func Max(values []float64) float64 {
 	return PercentValue(values, 1)
 }
 
-func Min(values []float64) {
+// Min .
+func Min(values []float64) float64 {
 	return PercentValue(values, 0)
 }
 
-func MidValue(values []float64, percent float64) {
+// MidValue .
+func MidValue(values []float64, percent float64) float64 {
 	return PercentValue(values, 0.5)
 }
 
-func QuarteValue(values []float64) {
+// QuarteValue .
+func QuarteValue(values []float64) float64 {
 	return PercentValue(values, 0.25)
 }
 
-func Quarte3Value(values []float64) {
+// Quarte3Value .
+func Quarte3Value(values []float64) float64 {
 	return PercentValue(values, 0.75)
 }
