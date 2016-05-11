@@ -43,7 +43,7 @@ func (c *AppConf) Init() {
 	}
 	sb := mcore.NewStringBuffer()
 	sb.AppendLine("# Auto Generate")
-	sb.AppendLine(fmt.Sprintf("%s=%s", KEY_VENDOR_NAME, V_VENDOR_MABETLE))
+	sb.AppendLine(fmt.Sprintf("%s=%s", KeyVendorName, VendorMabetle))
 	logger.Tracef("Init config. AppName:%s Location:%s", c.AppName, c.Location())
 	_, err := mcore.WriteFile(c.Location(), sb.String())
 	if err != nil {
@@ -80,7 +80,7 @@ func (c *AppConf) GetString(key string) string {
 }
 
 func (c *AppConf) GetVendorName() string {
-	return c.GetString(KEY_VENDOR_NAME)
+	return c.GetString(KeyVendorName)
 }
 
 func (c *AppConf) RunMode() string {
@@ -89,27 +89,27 @@ func (c *AppConf) RunMode() string {
 	}
 
 	//1. check flag
-	if mcore.IsHasDevArg(){
-		c.runMode = MODE_DEV
-	}else if mcore.IsHasProdArg(){
+	if mcore.IsHasDevArg() {
+		c.runMode = ModeDev
+	} else if mcore.IsHasProdArg() {
 		c.runMode = "prod"
-	}else if mcore.IsHasTestArg(){
-		c.runMode="test"
+	} else if mcore.IsHasTestArg() {
+		c.runMode = "test"
 	}
 
-	if c.runMode !=""{
+	if c.runMode != "" {
 		return c.runMode
 	}
 
 	// 2.check env
-	if v := os.Getenv("RUN_MODE");v!=""{
+	if v := os.Getenv("RUN_MODE"); v != "" {
 		c.runMode = v
 		return c.runMode
 	}
 
 	// after all try, give default RunMode.
 	if c.runMode == "" {
-		c.runMode = MODE_DEV
+		c.runMode = ModeDev
 	}
 	return c.runMode
 }

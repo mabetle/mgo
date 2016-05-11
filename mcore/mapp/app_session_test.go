@@ -2,8 +2,9 @@ package mapp_test
 
 import (
 	"fmt"
-	"mabetle/libs/mapp"
 	"testing"
+
+	"github.com/mabetle/mgo/mcore/mapp"
 )
 
 func init() {

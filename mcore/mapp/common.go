@@ -9,27 +9,27 @@ var (
 )
 
 const (
-	V_VENDOR_MABETLE     = "Mabetle"
-	V_VENDOR_MABETLE_URL = "http://www.mabetle.com"
-	MODE_DEV             = "dev"
+	VendorMabetle    = "Mabetle"
+	VendorMabetleUrl = "http://www.mabetle.com"
+	ModeDev          = "dev"
 )
 
 var (
 	VersionMain  = "1"
 	VersionMinus = "0"
 
-	VendorName = V_VENDOR_MABETLE
-	VendorURL  = V_VENDOR_MABETLE_URL
+	VendorName = VendorMabetle
+	VendorURL  = VendorMabetleUrl
 
-	LicenseTo = "DEMO"
+	LicenseTo = "demo"
 	RunMode   = "dev"
 
 	AccountSchema = "web_common"
 )
 
 var (
-	KEY_LICENSE_TO  = "license.to"
-	KEY_VENDOR_NAME = "vendor.name"
+	KeyLicenseTo  = "license.to"
+	KeyVendorName = "vendor.name"
 )
 
 type License struct {
