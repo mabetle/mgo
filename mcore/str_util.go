@@ -5,11 +5,12 @@ package mcore
 import (
 	"bytes"
 	"fmt"
-	"golang.org/x/text/encoding/simplifiedchinese"
-	"golang.org/x/text/transform"
 	"io/ioutil"
 	"strings"
 	"unicode"
+
+	"golang.org/x/text/encoding/simplifiedchinese"
+	"golang.org/x/text/transform"
 )
 
 const (
@@ -182,4 +183,12 @@ func IsChineseChar(str string) bool {
 // StringLen how many chars
 func StringLen(v string) int {
 	return len([]rune(v))
+}
+
+func TrimSepLast(v string, sep string) string {
+	vs := strings.Split(v, sep)
+	if len(vs) < 2 {
+		return v
+	}
+	return strings.Join(vs[:len(vs)-1], sep)
 }

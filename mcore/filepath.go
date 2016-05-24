@@ -19,7 +19,7 @@ func ExpandPath(path string) string {
 	return os.ExpandEnv(path)
 }
 
-// JoinPath
+// JoinPath join path
 func JoinPath(paths ...string) string {
 	sb := NewStringBuffer()
 	for i, path := range paths {

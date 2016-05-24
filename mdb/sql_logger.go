@@ -2,6 +2,7 @@ package mdb
 
 import (
 	"fmt"
+
 	"github.com/mabetle/mgo/mcore"
 )
 
@@ -12,7 +13,7 @@ func (s Sql) Log(query string, args ...interface{}) {
 	}
 	msg := fmt.Sprintf("\nQuery:%s", query)
 	if len(args) > 0 {
-		argStr := mcore.Join(",", args...)
+		argStr := mcore.SepJoin(",", args...)
 		msg = fmt.Sprintf("%s\n Args:%s", msg, argStr)
 	}
 	fmt.Println(msg)

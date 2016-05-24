@@ -16,3 +16,11 @@ func GetFileName(path string) string {
 	}
 	return String(path).SepEnd("/").String()
 }
+
+// GetFileExt returns file extend
+func GetFileExt(path string) string {
+	if !String(path).IsContains(".") {
+		return ""
+	}
+	return String(path).SepEnd(".").String()
+}
