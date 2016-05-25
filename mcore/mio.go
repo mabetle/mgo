@@ -114,3 +114,15 @@ func ReadSelectArray(vs []string, msg ...interface{}) string {
 	}
 	return vs[s]
 }
+
+// ReadExistLocation read exists location.
+func ReadExistLocation(msgs ...interface{}) string {
+	location := ReadNotBlankLineWithMsg(msgs...)
+	// file not exists
+	if !IsFileExist(location) {
+		fmt.Printf("File not exists:%s\n", location)
+		return ReadExistLocation(msgs...)
+	}
+	// file exists
+	return location
+}

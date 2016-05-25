@@ -2,6 +2,7 @@ package mdb
 
 import (
 	"fmt"
+
 	"github.com/mabetle/mgo/mcore"
 )
 
@@ -62,6 +63,7 @@ func (s Sql) AlterDropPrimaryKey(table string) error {
 func (s Sql) AlterRenameColumn(table, column, newName string) error {
 	var err error
 	//TODO rename column name in mysql is really confused me.
+	logger.Warnf("not implements")
 	return err
 }
 

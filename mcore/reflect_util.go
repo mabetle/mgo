@@ -174,7 +174,7 @@ func GetFieldsUsed2(fs []string, include, exclude string) (r []string) {
 	return
 }
 
-// GetMethods
+// GetMethods return struct methods
 func GetMethods(v interface{}) (r []string) {
 	value := reflect.ValueOf(v)
 	typ := value.Type()
@@ -260,7 +260,7 @@ func SetFieldValue(v interface{}, field string, newValue interface{}) interface{
 	return v
 }
 
-// PrintType pring value type
+// PrintType print value type
 func PrintType(v interface{}) {
 	typ := reflect.TypeOf(v)
 	fmt.Println(typ)
