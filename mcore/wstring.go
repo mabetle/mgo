@@ -507,15 +507,13 @@ func (s String) TrimQuotes() String {
 // TrimEndIndex eg: "a/b/c" TrimEndIndex("/") returns a/b
 func (s String) TrimEndIndex(sep string) String {
 	if !s.IsContains(sep) {
-		println("not contains ")
 		return s
 	}
 	n := s.LastIndex(sep)
-	println(n)
 	return s.SubLeft(n)
 }
 
-// TrimBeginIndex
+// TrimBeginIndex eg "a/b/c" TrimBeginIndex("/") returns b/c
 func (s String) TrimBeginIndex(sep string) String {
 	if !s.IsContains(sep) {
 		return s
