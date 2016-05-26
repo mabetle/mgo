@@ -7,6 +7,11 @@ import (
 	"github.com/mabetle/mgo/mcore"
 )
 
+type ResRoles struct {
+	res   string
+	roles string
+}
+
 // RolePrefix role prefix ROLE_
 const RolePrefix = "ROLE_"
 
@@ -72,6 +77,14 @@ func CheckRoles(needRoles, userRoles string) bool {
 	}
 	// not found, no rights
 	return false
+}
+
+func RegAuthText(text string) {
+	LoadResRolesText(text)
+}
+
+func RegResRoles(res, roles string) {
+	AddResRoleMap(res, roles)
 }
 
 // AddResRoleMap add res role map
@@ -153,13 +166,10 @@ func PrintResRoleAuthMap() {
 	}
 }
 
-// LoadAuthMapFile load.
-func LoadAuthMapFile(location string) error {
-	fmt.Printf("Load Res Auth Config from File: %s\n", location)
-	lines, err := mcore.ReadFileLines(location)
-	if err != nil {
-		fmt.Printf("Error Load Auth File: %s\n", err)
-		return err
+func LoadResRolesText(text string) error {
+	lines := strings.Split(text, "\n")
+	if len(lines) == 0 {
+		return fmt.Errorf("no lines")
 	}
 	for _, line := range lines {
 		ms := mcore.NewString(line).TrimSpace()
@@ -168,37 +178,32 @@ func LoadAuthMapFile(location string) error {
 			continue
 		}
 		rm := ms.Split("=")
-		if len(rm) < 2 {
+
+		// not a valid line
+		if len(rm) != 2 {
 			continue
 		}
+
 		res := strings.TrimSpace(rm[0])
 		role := strings.TrimSpace(rm[1])
+
 		AddResRoleMap(res, role)
 	}
 	return nil
 }
 
+// LoadAuthMapFile load.
+func LoadAuthMapFile(location string) error {
+	fmt.Printf("Load Res Auth Config from File: %s\n", location)
+	text, err := mcore.ReadFileAll(location)
+	if err != nil {
+		fmt.Printf("Error Load Auth File: %s\n", err)
+		return err
+	}
+	return LoadResRolesText(text)
+}
+
 func InitAuthMap() {
 	fmt.Printf("***Init AuthMap\n")
-	// commons
-	AddResRoleMap("/Demo*", "DEMO")
-	AddResRoleMap("/Admin*", "ADMIN")
-
-	// static assets
-	AddResRoleMap("/public*", "ALL")
-	AddResRoleMap("/mps/public*", "ALL")
-	AddResRoleMap("/fav*", "ALL")
-	AddResRoleMap("/robots*", "ALL")
-	AddResRoleMap("/logo*", "ALL")
-	AddResRoleMap("/assets*", "ALL")
-
-	// for old spring
-	AddResRoleMap("/j_spring*", "ALL")
-
-	// some pages
-	AddResRoleMap("/Help/*", "ALL")
-
-	AddResRoleMap("/AppAjax/*", "ALL")
-	AddResRoleMap("/Account*", "ALL")
-	AddResRoleMap("/AccountAjax/", "ALL")
+	LoadResRolesText(defaultResRolesText)
 }
