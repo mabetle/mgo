@@ -2,24 +2,29 @@ package mauth
 
 import (
 	"fmt"
-	"github.com/mabetle/mgo/mcore"
 	"strings"
+
+	"github.com/mabetle/mgo/mcore"
 )
 
-const ROLE_PREFIX = "ROLE_"
+// RolePrefix role prefix ROLE_
+const RolePrefix = "ROLE_"
 
+// ResRoleMap {res,roles}
 var ResRoleMap = [][]string{}
 
+// QualifyRole add prefix to role string
 func QualifyRole(role string) string {
 	role = strings.ToUpper(role)
 	role = strings.TrimSpace(role)
 
-	if !strings.HasPrefix(role, ROLE_PREFIX) {
-		role = ROLE_PREFIX + role
+	if !strings.HasPrefix(role, RolePrefix) {
+		role = RolePrefix + role
 	}
 	return role
 }
 
+// QualifyRoles roles string to array.
 func QualifyRoles(roles string) []string {
 	result := []string{}
 	for _, role := range strings.Split(roles, ",") {
@@ -37,6 +42,7 @@ func QualifyRolesStr(roles string) string {
 	return strings.Join(QualifyRoles(roles), ",")
 }
 
+// CheckRoles check userRoles in need roles
 func CheckRoles(needRoles, userRoles string) bool {
 	// not found means no rights restrict
 	if needRoles == "" {
@@ -48,7 +54,7 @@ func CheckRoles(needRoles, userRoles string) bool {
 	}
 	// if user roles null means not login yet.
 	if userRoles == "" {
-
+		//return false
 	}
 
 	needRolesA := QualifyRoles(needRoles)
@@ -68,7 +74,7 @@ func CheckRoles(needRoles, userRoles string) bool {
 	return false
 }
 
-// AddResRoleMap
+// AddResRoleMap add res role map
 func AddResRoleMap(res, roles string) {
 	res = strings.ToLower(res)
 	res = strings.TrimSpace(res)
@@ -136,7 +142,7 @@ func PrintIsCanAccessRes(checkRes, userRoles string, expect bool) {
 	fmt.Printf("CheckAuth, Res:%s UserRoles: %s Result:%v Expect:%v\n", checkRes, userRoles, b, expect)
 }
 
-//
+// PrintResRoleAuthMap print.
 func PrintResRoleAuthMap() {
 	fmt.Printf("***ResRoleAuth Config***\n")
 	for _, rm := range ResRoleMap {
@@ -147,7 +153,7 @@ func PrintResRoleAuthMap() {
 	}
 }
 
-// LoadAuthMapFile
+// LoadAuthMapFile load.
 func LoadAuthMapFile(location string) error {
 	fmt.Printf("Load Res Auth Config from File: %s\n", location)
 	lines, err := mcore.ReadFileLines(location)
