@@ -18,6 +18,20 @@ const RolePrefix = "ROLE_"
 // ResRoleMap {res,roles}
 var ResRoleMap = [][]string{}
 
+func RegAuthText(text string) error {
+	LoadResRolesText(text)
+	return nil
+}
+
+func RegRoles(res interface{}, roles string) error {
+	_res, err := GetFuncRes(res)
+	if err != nil {
+		return err
+	}
+	AddResRoleMap(_res, roles)
+	return nil
+}
+
 // QualifyRole add prefix to role string
 func QualifyRole(role string) string {
 	role = strings.ToUpper(role)
@@ -77,16 +91,6 @@ func CheckRoles(needRoles, userRoles string) bool {
 	}
 	// not found, no rights
 	return false
-}
-
-func RegAuthText(text string) error {
-	LoadResRolesText(text)
-	return nil
-}
-
-func RegResRoles(res, roles string) error {
-	AddResRoleMap(res, roles)
-	return nil
 }
 
 // AddResRoleMap add res role map

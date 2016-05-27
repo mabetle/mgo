@@ -2,7 +2,8 @@ package main
 
 import (
 	"mabetle/libs/dbc"
-	"mabetle/libs/wage_record/models"
+	"mabetle/libs/wagerecord"
+
 	"github.com/mabetle/mgo/mcell/wxlsx"
 	"github.com/mabetle/mgo/mlog"
 )
@@ -13,10 +14,10 @@ var (
 )
 
 func main() {
-	m := &models.WageRecord{}
+	m := &wagerecord.WageRecord{}
 	m.UserName = "zsc"
 	m.TheYear = 2014
-	var rows []models.WageRecord
+	var rows []wagerecord.WageRecord
 	xorm.Find(&rows, m)
 	f, err := wxlsx.ValueToExcel("", rows, "", "Id")
 	if logger.CheckError(err) {
