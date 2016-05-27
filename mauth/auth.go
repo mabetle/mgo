@@ -79,12 +79,14 @@ func CheckRoles(needRoles, userRoles string) bool {
 	return false
 }
 
-func RegAuthText(text string) {
+func RegAuthText(text string) error {
 	LoadResRolesText(text)
+	return nil
 }
 
-func RegResRoles(res, roles string) {
+func RegResRoles(res, roles string) error {
 	AddResRoleMap(res, roles)
+	return nil
 }
 
 // AddResRoleMap add res role map
