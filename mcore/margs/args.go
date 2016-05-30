@@ -122,6 +122,10 @@ func (s *Args) GetExclude() string {
 	return s.GetString("exclude", "")
 }
 
+func (s *Args) GetUserRoles() string {
+	return s.GetString("UserRoles", "")
+}
+
 func (s *Args) String() string {
 	rows := []string{}
 	for _, kv := range s.kvs {
