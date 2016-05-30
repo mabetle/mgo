@@ -126,8 +126,10 @@ func isMatch(res, checkRes string) bool {
 	return false
 }
 
-// getResNeedRoles
-func getResNeedRoles(checkRes string) string {
+// GetResNeedRoles
+func GetResNeedRoles(checkRes string) string {
+	checkRes = strings.ToLower(checkRes)
+	checkRes = strings.TrimSpace(checkRes)
 	sb := mcore.NewStringBuffer()
 	for _, rm := range ResRoleMap {
 		if len(rm) < 2 {
@@ -145,9 +147,7 @@ func getResNeedRoles(checkRes string) string {
 
 // IsCanAccessRes
 func IsCanAccessRes(checkRes, userRoles string) bool {
-	checkRes = strings.ToLower(checkRes)
-	checkRes = strings.TrimSpace(checkRes)
-	needRoles := getResNeedRoles(checkRes)
+	needRoles := GetResNeedRoles(checkRes)
 	return CheckRoles(needRoles, userRoles)
 }
 

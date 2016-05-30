@@ -2,6 +2,7 @@ package wxlsx
 
 import (
 	"database/sql"
+
 	"github.com/mabetle/mgo/mcore"
 	"github.com/mabetle/mgo/mmsg"
 	"github.com/tealeg/xlsx"
@@ -13,7 +14,10 @@ func SqlRowsToExcel(sheetName string,
 	rows *sql.Rows,
 	include string,
 	exclude string) (*xlsx.File, error) {
-	return SqlRowsToExcelWithLocale(sheetName, "", rows, include, exclude, "", false)
+	tableName := ""
+	locale := ""
+	enableLocale := false
+	return SqlRowsToExcelWithLocale(sheetName, tableName, rows, include, exclude, locale, enableLocale)
 }
 
 // SqlRowsToExcelWithLocale sql rows to excel
