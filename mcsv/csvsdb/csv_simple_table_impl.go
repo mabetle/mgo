@@ -2,9 +2,14 @@ package csvsdb
 
 import (
 	"fmt"
+	"strconv"
+
 	"github.com/mabetle/mgo/mcore/msdb"
 	"github.com/mabetle/mgo/mcsv"
+	"github.com/mabetle/mgo/mlog"
 )
+
+var logger = mlog.GetLogger("github.com/mabetle/mgo/mcsv/csvsdb")
 
 type CsvTable struct {
 	*msdb.BaseTable
@@ -32,14 +37,16 @@ func NewCsvTable(file string) *CsvTable {
 }
 
 // overide BaseTable
-func (t *CsvTable) GetString(col int) (value string) {
+func (t *CsvTable) GetString(col string) (value string) {
 	//TODO out of range?
 	defer func() {
 		if err := recover(); err != nil {
 			fmt.Println(err)
 		}
 	}()
-	value = t.body[t.Cusor.RowIndex-1][col]
+	iCol, err := strconv.Atoi(col)
+	logger.CheckError(err)
+	value = t.body[t.Cusor.RowIndex-1][iCol]
 	return
 }
 

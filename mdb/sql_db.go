@@ -116,11 +116,11 @@ func (s Sql) ColumnExec(table, column, format string) error {
 
 // DbTablesExec loop all tables in db, format include 1 string place holder.
 func (s Sql) DbTablesExec(db string, format string) error {
-	errs := mcore.NewErrors()
+	errs := mcore.NewResults()
 	ts := s.GetTables(db)
 	for _, t := range ts {
 		e := s.TableExec(t, format)
-		errs.Record(e)
+		errs.RecordError(e)
 	}
 	return errs.Error()
 }

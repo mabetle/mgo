@@ -11,12 +11,12 @@ func (s Sql) Log(query string, args ...interface{}) {
 	if !s.ShowSql {
 		return
 	}
-	msg := fmt.Sprintf("\nQuery:%s", query)
+	fmt.Printf("Host:%s Database:%s\n", s.Host, s.Schema)
+	fmt.Printf("Sql :%s\n", query)
 	if len(args) > 0 {
 		argStr := mcore.SepJoin(",", args...)
-		msg = fmt.Sprintf("%s\n Args:%s", msg, argStr)
+		fmt.Printf("Args:%s\n", argStr)
 	}
-	fmt.Println(msg)
 }
 
 func (s *Sql) SetShowSql(b bool) {

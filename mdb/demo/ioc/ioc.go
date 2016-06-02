@@ -1,15 +1,16 @@
 package ioc
 
-
 import (
+	"mabetle/libs/hubs"
+
 	"github.com/mabetle/mgo/mdb"
-	"github.com/mabetle/mgo/mdb/sql_mysqld"
 )
+
 var sqlDB *mdb.Sql
-func GetSql()*mdb.Sql{
+
+func GetSql() *mdb.Sql {
 	if sqlDB == nil {
-		sqlDB = sql_mysqld.NewSqlFromSchema("demo")
+		sqlDB = hubs.GetDemoSql()
 	}
 	return sqlDB
 }
-

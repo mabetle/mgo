@@ -1,12 +1,9 @@
 package main
 
-import (
-	"github.com/mabetle/mgo/mdb/sql_mysqld"
-)
+import "mabetle/libs/hubs"
 
-
-var(
-	sql = sql_mysqld.NewSqlFromSchema("demo")
+var (
+	sql = hubs.GetDemoSql()
 )
 
 func main() {
@@ -15,4 +12,3 @@ func main() {
 	sql.NewQuery().Table("demo_table").Columns("DemoName").Where("DemoAge > 0 ").Order("DemoName").Print()
 
 }
-

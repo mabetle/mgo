@@ -49,10 +49,10 @@ func (s Sql) ClearTable(table string) error {
 
 // ClearTables clears tables rows one by one
 func (s Sql) ClearTables(tables ...string) error {
-	errs := mcore.NewErrors()
+	errs := mcore.NewResults()
 	for _, v := range tables {
 		e := s.ClearTable(v)
-		errs.Record(e)
+		errs.RecordError(e)
 	}
 	return errs.Error()
 }
@@ -66,10 +66,10 @@ func (s Sql) DropTable(table string) error {
 
 // DropTables drops tables
 func (s Sql) DropTables(tables ...string) error {
-	errs := mcore.NewErrors()
+	errs := mcore.NewResults()
 	for _, v := range tables {
 		e := s.DropTable(v)
-		errs.Record(e)
+		errs.RecordError(e)
 	}
 	return errs.Error()
 }

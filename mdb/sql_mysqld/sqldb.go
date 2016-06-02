@@ -13,5 +13,7 @@ func NewSql(conf *dbconf.DBConf) (*mdb.Sql, error) {
 		return nil, err
 	}
 	sql := mdb.NewSql(db)
+	sql.Host = conf.Host
+	sql.Schema = conf.Database
 	return sql, nil
 }

@@ -3,15 +3,17 @@ package mdb
 import (
 	"database/sql"
 	"fmt"
+
 	"github.com/mabetle/mgo/mcore"
 )
 
 // Sql wrap sqlDB and provide many functions.
 type Sql struct {
-	DB         *sql.DB
-	SchemaName string
-	Dialect    string // defautl to mysql.
-	ShowSql    bool
+	DB      *sql.DB
+	Host    string
+	Schema  string
+	Dialect string // defautl to mysql.
+	ShowSql bool
 }
 
 // New creates sql
@@ -26,8 +28,20 @@ func NewSql(db *sql.DB) *Sql {
 	logger.Trace("Create new mdb.Sql ")
 	s := new(Sql)
 	s.DB = db
+	// default is show sql
+	s.ShowSql = true
 	s.Dialect = "mysql"
 	return s
+}
+
+// DisableShowSql .
+func (s *Sql) DisableShowSql() {
+	s.ShowSql = false
+}
+
+// EnableShowSql .
+func (s *Sql) EnableShowSql() {
+	s.ShowSql = true
 }
 
 // Use which schema/database.
@@ -45,7 +59,7 @@ func (s *Sql) SetDialect(dialect string) *Sql {
 
 // GetSchemaName return schema name store in Sql.
 func (s Sql) GetSchemaName() string {
-	return s.SchemaName
+	return s.Schema
 }
 
 // QueryForInt return query int result.

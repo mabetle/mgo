@@ -1,6 +1,9 @@
 package mcore
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // GetMappedName return mapped name with mapRules
 func GetMappedName(name string, mapRules string) string {
@@ -29,4 +32,12 @@ func GetMappedName(name string, mapRules string) string {
 	}
 	// not found, means not define
 	return name
+}
+
+func CheckError(err error, okMsg string) {
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	fmt.Printf("Success:%s\n", okMsg)
 }

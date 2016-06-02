@@ -1,18 +1,16 @@
 package main
 
 import (
-	//"github.com/mabetle/mgo/mdb"
-	"github.com/mabetle/mgo/mdb/sql_mysqld"
 	"fmt"
+	"mabetle/libs/hubs"
 )
 
-
-var(
-	db		=sql_mysqld.NewSqlFromSchema("demo")
-	table	=db.NewTable("demo_table")
+var (
+	db    = hubs.GetDemoSql()
+	table = db.NewTable("demo_table")
 )
 
-func Demo(){
+func Demo() {
 	fmt.Println(table.CountRows())
 	fmt.Println(table.CountColumns())
 	fmt.Println(table.GetColumns())
@@ -22,5 +20,3 @@ func Demo(){
 func main() {
 	Demo()
 }
-
-

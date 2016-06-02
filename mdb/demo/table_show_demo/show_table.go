@@ -2,19 +2,20 @@ package main
 
 import (
 	"encoding/json"
-	"database/sql"
 	"fmt"
-	"github.com/mabetle/mgo/mdb/sql_mysqld"
+	"mabetle/libs/hubs"
+
+	"github.com/mabetle/mgo/mdb"
 )
 
-func checkError(err error){
+func checkError(err error) {
 	if nil == err {
 		return
 	}
 	fmt.Println(err)
 }
 
-func Demo(db *sql.DB, table string){
+func Demo(db *mdb.Sql, table string) {
 	q := "select * from " + table
 	rows, err := db.Query(q)
 	checkError(err)
@@ -31,49 +32,46 @@ func Demo(db *sql.DB, table string){
 	}
 
 	//define a map store json values
-	datas:=map[int]string{}
+	datas := map[int]string{}
 
-	i:=0
+	i := 0
 	for rows.Next() {
 		i++
 		err = rows.Scan(scanArgs...)
 		checkError(err)
 
-		fmt.Printf("%v\n",scanArgs)
+		fmt.Printf("%v\n", scanArgs)
 
 		record := make(map[string]interface{})
 
 		for i, col := range values {
 			if col != nil {
-				v:=fmt.Sprintf("%s", string(col.([]byte)))
+				v := fmt.Sprintf("%s", string(col.([]byte)))
 				record[columns[i]] = v
 			}
 		}
 		s, _ := json.Marshal(record)
 
-		datas[i]=string(s)
+		datas[i] = string(s)
 		//fmt.Printf("%s\n", s)
 	}
 
 	//print data
-	for _,d:=range datas{
+	for _, d := range datas {
 		fmt.Printf("JSON:%v\n", d)
 	}
 }
 
-
-func Demo1(){
-	sql:=sql_mysqld.NewDBFromSchema("demo")
+func Demo1() {
+	sql := hubs.GetDemoSql()
 	Demo(sql, "demo_table")
 }
 
-func Demo2(){
-	sql:=sql_mysqld.NewDBFromSchema("web_common")
+func Demo2() {
+	sql := hubs.GetCommonSql()
 	Demo(sql, "user_info")
 }
 
 func main() {
 	Demo2()
 }
-
-

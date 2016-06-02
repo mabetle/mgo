@@ -2,6 +2,7 @@ package mdb
 
 import (
 	"database/sql"
+	"fmt"
 )
 
 // Exec override sql.DB.Exec(), add some logs, print sql and args, when occur error print it.
@@ -12,8 +13,9 @@ func (s Sql) Exec(query string, v ...interface{}) (r sql.Result, err error) {
 		return
 	}
 	affected, e := r.RowsAffected()
-	if !logger.CheckError(e) {
-		logger.Debug("Succeed:", affected, " rows affected.")
+	logger.CheckError(e)
+	if s.ShowSql {
+		fmt.Printf("Result: Affected:%d Error:%v \n", affected, e)
 	}
 	return
 }

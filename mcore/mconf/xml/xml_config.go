@@ -5,11 +5,11 @@ import (
 	"github.com/mabetle/mgo/mlog"
 )
 
-var(
-	logger = mlog.GetLoggerWithCatalog("github.com/mabetle/mgo/mcore/mconf/xml")
+var (
+	logger = mlog.GetLogger("github.com/mabetle/mgo/mcore/mconf/xml")
 )
 
-type XmlConfig struct{
+type XmlConfig struct {
 }
 
 func GetConfig(file string) conf.Config {
@@ -17,25 +17,27 @@ func GetConfig(file string) conf.Config {
 	return GetXmlConfig(file)
 }
 
-func GetXmlConfig(file string)*XmlConfig{
+func GetXmlConfig(file string) *XmlConfig {
 	return &XmlConfig{}
 }
 
 // implements for Config
-func (c XmlConfig) GetString(key string)string{
+func (c XmlConfig) GetString(key string) string {
 	return ""
 }
 
-func (c XmlConfig)GetInt(key string)int{
+func (c XmlConfig) GetStringWithDefault(key, dv string) string {
+	return ""
+}
+
+func (c XmlConfig) GetInt(key string) int {
 	return 0
 }
 
-func (c XmlConfig)GetBool(key string)bool{
+func (c XmlConfig) GetBool(key string) bool {
 	return false
 }
 
-func (c XmlConfig)IsContain(key string)bool{
+func (c XmlConfig) IsContain(key string) bool {
 	return false
 }
-
-

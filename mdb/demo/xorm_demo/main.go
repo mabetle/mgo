@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/mabetle/mgo/mlog"
+	"mabetle/libs/hubs"
+
 	. "github.com/mabetle/mgo/mdb/demo/models"
-	"github.com/mabetle/mgo/mdb/sql_mysqld"
-	"github.com/mabetle/mgo/mdb/xorm_mysqld"
+	"github.com/mabetle/mgo/mlog"
 )
 
 var (
-	sql  = sql_mysqld.NewDemoSql()
-	xorm = xorm_mysqld.NewDemoXorm()
+	sql  = hubs.GetDemoSql()
+	xorm = hubs.GetDemoXorm()
 	m    = DemoXorm{}
 )
 
