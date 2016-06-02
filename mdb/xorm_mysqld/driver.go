@@ -2,6 +2,7 @@ package xorm_mysqld
 
 import (
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
@@ -28,6 +29,8 @@ func NewXorm(conf *dbconf.DBConf) (*mdb.Xorm, error) {
 	//engine.ShowDebug = false
 	//engine.ShowErr = true
 	//engine.ShowWarn = false
+
+	engine.ShowSQL(true)
 
 	engine.SetTableMapper(core.SnakeMapper{})
 
