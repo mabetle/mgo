@@ -3,6 +3,9 @@ package mcore
 import (
 	"fmt"
 	"io"
+	"net/http"
+
+	"github.com/revel/revel"
 )
 
 type Results struct {
@@ -28,18 +31,27 @@ func (rr *Results) Error() error {
 
 // RecordError .
 func (rr *Results) RecordError(err error) *Results {
-	rr.Errs = append(rr.Errs, err)
+	if err != nil {
+		rr.Errs = append(rr.Errs, err)
+	}
 	return rr
 }
 
 // RecordErr .
-func (rr *Results) RecordErr(err string, args ...interface{}) *Results {
-	rr.Errs = append(rr.Errs, fmt.Errorf(err, args...))
+func (rr *Results) RecordErr(errMsg string, args ...interface{}) *Results {
+	if errMsg == "" {
+		return rr
+	}
+	err := fmt.Errorf(errMsg, args...)
+	rr.RecordError(err)
 	return rr
 }
 
 // RecordMsg .
 func (rr *Results) RecordMsg(msg string, args ...interface{}) *Results {
+	if msg == "" {
+		return rr
+	}
 	rr.Msgs = append(rr.Msgs, fmt.Sprintf(msg, args...))
 	return rr
 }
@@ -105,8 +117,9 @@ func (rr *Results) PrintErrors() {
 		fmt.Println("No errors")
 		return
 	}
+	fmt.Printf("Errors:\n")
 	for i, err := range rr.Errs {
-		fmt.Printf("Error %d: %v\n", i+1, err)
+		fmt.Printf("\t %d: %v\n", i+1, err)
 	}
 }
 
@@ -114,9 +127,11 @@ func (rr *Results) PrintErrors() {
 func (rr *Results) PrintMsgs() {
 	if !rr.IsHasMsg() {
 		fmt.Printf("No messages.\n")
+		return
 	}
+	fmt.Printf("Messages:\n")
 	for i, v := range rr.Msgs {
-		fmt.Printf("Msg %d: %v\n", i+1, v)
+		fmt.Printf("\t %d: %v\n", i+1, v)
 	}
 }
 
@@ -124,4 +139,10 @@ func (rr *Results) PrintMsgs() {
 func (rr *Results) Print() {
 	rr.PrintErrors()
 	rr.PrintMsgs()
+}
+
+// Apply implements revel.Result
+func (rr *Results) Apply(req *revel.Request, resp *revel.Response) {
+	resp.WriteHeader(http.StatusOK, "text/html")
+	rr.HtmlWrite(resp.Out)
 }
