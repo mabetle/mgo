@@ -28,6 +28,15 @@ func ReadLine() string {
 	return result
 }
 
+// ReadLineWithDefault
+func ReadLineWithDefault(dv string) string {
+	v := ReadLine()
+	if v == "" {
+		v = dv
+	}
+	return v
+}
+
 // ReadArgs .
 func ReadArgs() []string {
 	s := ReadLine()
@@ -42,6 +51,17 @@ func ReadLineWithMsg(msgs ...interface{}) string {
 	}
 	mcon.PrintGreen(msg)
 	return ReadLine()
+}
+
+// ReadLineWithDefaultAndMsg
+func ReadLineWithDefaultAndMsg(dv string, msgs ...interface{}) string {
+	msg := fmt.Sprint(msgs...)
+	msg = fmt.Sprint(msg, " Default: ", dv)
+	if !String(msg).IsEndWith(":") {
+		msg = msg + ":"
+	}
+	mcon.PrintGreen(msg)
+	return ReadLineWithDefault(dv)
 }
 
 // ReadNotBlankLine .
@@ -63,7 +83,7 @@ func ReadNotBlankLineWithMsg(msgs ...interface{}) string {
 	if !String(msg).IsEndWith(":") {
 		msg = msg + ":"
 	}
-	fmt.Print(msg)
+	mcon.PrintGreen(msg)
 	return ReadNotBlankLine()
 }
 
@@ -88,7 +108,7 @@ func ReadNotZeroInt(msg ...interface{}) int {
 
 // ReadBool .
 func ReadBool(dft bool, msg ...interface{}) bool {
-	v := ReadLineWithMsg(fmt.Sprint(msg...))
+	v := ReadLineWithDefaultAndMsg(fmt.Sprint(dft), fmt.Sprint(msg...))
 	if String(v).IsBlank() {
 		return dft
 	}

@@ -5,10 +5,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/mabetle/mgo/mcore"
-	"github.com/mabetle/mgo/mcore/mcon"
 	"os"
 	"strings"
+
+	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mcon"
 )
 
 var (
@@ -105,16 +106,17 @@ func Search(path string, exts string, recursive bool, skipDirs, skipFiles, conte
 		data, err := mcore.ReadFileLines(item)
 
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println("Read file error. File:%s Error:%v", item, err)
 			continue
 		}
 
+		// line search, TODO whole file match.
 		for lineNum, line := range data {
 			if strings.Contains(line, content) {
 				fmt.Printf("%d ", lineNum+1)
 				lineA := mcore.String(line).Split(content)
 				for i, v := range lineA {
-					fmt.Printf(v)
+					fmt.Print(v)
 					if i != len(lineA)-1 {
 						mcon.PrintGreen(content)
 					}

@@ -337,7 +337,7 @@ func GetSubFilesImpl(
 		if skipDirs != "" && String(file.Name()).IsContainsInSepStringIgnoreCase(skipDirs, ",") {
 			continue
 		}
-		if file.IsDir() {
+		if file.IsDir() && !file.Mode().IsRegular() {
 			if r {
 				GetSubFilesImpl(result, dir+"/"+file.Name(), r, exts, skipDirs, skipFiles)
 			}
