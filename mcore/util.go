@@ -34,10 +34,12 @@ func GetMappedName(name string, mapRules string) string {
 	return name
 }
 
-func CheckError(err error, okMsg string) {
+func CheckError(err error, okMsgs ... interface{}) {
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
-	fmt.Printf("Success:%s\n", okMsg)
+	if len(okMsgs) != 0 {
+		fmt.Printf("Success:%s\n", fmt.Sprint(okMsgs ...))
+	}
 }

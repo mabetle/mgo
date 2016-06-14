@@ -109,7 +109,7 @@ func ToLabel(name string) string {
 			continue
 		}
 		// upcase first letter
-		a = UpperCaseFirst(a)
+		a = UpperFirst(a)
 
 		if i == len(as) {
 			sb2.Append(a)

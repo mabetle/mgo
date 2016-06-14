@@ -14,28 +14,29 @@ import (
 )
 
 const (
-	UP_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	// UpperLetters all upper case letters.
+	UpperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 )
 
-// IsUpLetter
+// IsUpLetter .
 func IsUpLetter(l string) bool {
 	if len(l) != 1 {
 		return false
 	}
-	return strings.Contains(UP_LETTERS, l)
+	return strings.Contains(UpperLetters, l)
 }
 
-// SubRight
+// SubRight .
 func SubRight(s string, start int) string {
 	return Sub(s, start, len(s)-start)
 }
 
-// SubLeft
+// SubLeft .
 func SubLeft(s string, end int) string {
 	return Sub(s, 0, end)
 }
 
-// Sub
+// Sub .
 func Sub(str string, start, length int) string {
 	rs := []rune(str)
 	rl := len(rs)
@@ -66,7 +67,7 @@ func Sub(str string, start, length int) string {
 	return string(rs[start:end])
 }
 
-// SubByByte
+// SubByByte .
 func SubByByte(str string, length int) string {
 	bs := []byte(str)[:length]
 	bl := 0
@@ -149,8 +150,8 @@ func EncodeGBK(in string) string {
 	return string(d)
 }
 
-// UpperCaseFirst
-func UpperCaseFirst(in string) string {
+// UpperFirst
+func UpperFirst(in string) string {
 	in = strings.TrimSpace(in)
 	begin := SubLeft(in, 1)
 	begin = strings.ToUpper(begin)
@@ -171,6 +172,7 @@ func StringWidth(v string) int {
 	return r
 }
 
+// IsChineseChar
 func IsChineseChar(str string) bool {
 	for _, r := range str {
 		if unicode.Is(unicode.Scripts["Han"], r) {
@@ -185,6 +187,7 @@ func StringLen(v string) int {
 	return len([]rune(v))
 }
 
+// TrimSepLast .
 func TrimSepLast(v string, sep string) string {
 	vs := strings.Split(v, sep)
 	if len(vs) < 2 {
