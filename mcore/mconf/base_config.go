@@ -4,20 +4,16 @@ import (
 	"github.com/mabetle/mgo/mcore"
 )
 
-type StringGetter interface {
-	GetString(key string, defaultValue string) string
-}
-
 type BaseConfig struct {
-	StringGetter
+	StringDefaultGetter
 }
 
 // GetInt
 func (c BaseConfig) GetInt(key string) int {
-	return mcore.NewString(c.GetString(key, "0")).ToIntNoError()
+	return mcore.NewString(c.GetStringWithDefault(key, "0")).ToIntNoError()
 }
 
 // GetBool
 func (c BaseConfig) GetBool(key string) bool {
-	return mcore.NewString(c.GetString(key, "F")).ToBool()
+	return mcore.NewString(c.GetStringWithDefault(key, "F")).ToBool()
 }

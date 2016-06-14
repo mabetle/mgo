@@ -1,115 +1,68 @@
 package mapp
 
 import (
-	"fmt"
-	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mconf"
 	"github.com/mabetle/mgo/mcore/mconf/ini"
-	"os"
 )
 
-const (
-	ConfDir  = "/rundata/mapps"
-	ConfFile = "app.conf"
-)
+// App Config
+// config can hold in files and db
 
-type AppConf struct {
-	confDir     string
-	confFile    string
-	AppName     string
-	runMode     string
-	performLoad bool
-	mcore.StringKeyValueMap
+var appConfLocations = []string{}
+
+// hold configs
+var appConf mconf.Config
+
+// you can change this
+var AppName string
+
+var appConfLoaded = false
+
+// SetAppConfLocations load config from locations
+func SetAppConfLocations(locations ...string) {
+	appConfLocations = locations
 }
 
-func NewAppConf(dir, file, appName string) *AppConf {
-	t := &AppConf{confDir: dir, confFile: file, AppName: appName}
-	//t.runMode = RunMode
-	t.performLoad = true
-	return t
-}
-
-func NewDefaultAppConf(appName string) *AppConf {
-	return NewAppConf(ConfDir, ConfFile, appName)
-}
-
-func (c *AppConf) SetConfDir(dir string) *AppConf {
-	c.confDir = dir
-	return c
-}
-
-func (c *AppConf) Init() {
-	if c.IsExist() {
-		return
+// LoadAppConf
+func LoadAppConf() {
+	if len(appConfLocations) == 0 {
+		panic("no app conf files")
 	}
-	sb := mcore.NewStringBuffer()
-	sb.AppendLine("# Auto Generate")
-	sb.AppendLine(fmt.Sprintf("%s=%s", KeyVendorName, VendorMabetle))
-	logger.Tracef("Init config. AppName:%s Location:%s", c.AppName, c.Location())
-	_, err := mcore.WriteFile(c.Location(), sb.String())
-	if err != nil {
-		logger.Error(err)
-	}
+	appConf = ini.NewConfig(appConfLocations...)
+	appConfLoaded = true
 }
 
-func (c *AppConf) Location() string {
-	return fmt.Sprintf("%s/%s/%s", c.confDir, c.AppName, c.confFile)
+var scanDirs = []string{
+	".",
+	"conf",
+	"/rundata/conf",
 }
 
-func (c *AppConf) IsExist() bool {
-	return mcore.IsFileExist(c.Location())
+// ScanConfs, lazy to set config locations
+func ScanConfs() {
+
 }
 
-func (c *AppConf) Load() *AppConf {
-	if c.IsExist() {
-		logger.Tracef("Load config. AppName:%s Location:%s", c.AppName, c.Location())
-		c.StringKeyValueMap = ini.NewIniConfig(c.Location()).LoadKeyValue()
-		return c
+func GetAppName() string {
+	if AppName == "" {
+		AppName = GetAppConfStringWithDefault("app.name", "dbc")
 	}
-	logger.Tracef("Location not exists, Create Default StringKeyValueMap. AppName:%s", c.AppName)
-	c.StringKeyValueMap = mcore.NewStringKeyValueMap()
-	c.performLoad = false
-	return c
+	return AppName
 }
 
-func (c *AppConf) GetString(key string) string {
-	if c.performLoad {
-		logger.Tracef("Need reload config. AppName:%s", c.AppName)
-		c.Load()
+// GetAppConfStringWithDefault is main config entry point.
+func GetAppConfStringWithDefault(key string, dv string) string {
+	if !appConfLoaded {
+		LoadAppConf()
 	}
-	return c.StringKeyValueMap.GetString(key)
+	return appConf.GetStringWithDefault(key, dv)
 }
 
-func (c *AppConf) GetVendorName() string {
-	return c.GetString(KeyVendorName)
+func GetAppConfString(key string) string {
+	return GetAppConfStringWithDefault(key, "")
 }
 
-func (c *AppConf) RunMode() string {
-	if c.runMode != "" {
-		return c.runMode
-	}
-
-	//1. check flag
-	if mcore.IsHasDevArg() {
-		c.runMode = ModeDev
-	} else if mcore.IsHasProdArg() {
-		c.runMode = "prod"
-	} else if mcore.IsHasTestArg() {
-		c.runMode = "test"
-	}
-
-	if c.runMode != "" {
-		return c.runMode
-	}
-
-	// 2.check env
-	if v := os.Getenv("RUN_MODE"); v != "" {
-		c.runMode = v
-		return c.runMode
-	}
-
-	// after all try, give default RunMode.
-	if c.runMode == "" {
-		c.runMode = ModeDev
-	}
-	return c.runMode
+// VendorName
+func GetVendorName() string {
+	return GetAppConfString(KeyVendorName)
 }

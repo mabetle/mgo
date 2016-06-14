@@ -7,14 +7,14 @@ import (
 	"strings"
 )
 
-var Models = make(map[string]interface{})
+var HubModels = make(map[string]interface{})
 
 func RegModels(models ...interface{}) {
 	for _, model := range models {
 		pkg := mcore.GetPkgPath(model)
 		typ := mcore.GetTypeName(model)
 		key := fmt.Sprintf("%s-%s", pkg, typ)
-		Models[key] = model
+		HubModels[key] = model
 	}
 }
 
@@ -24,13 +24,13 @@ func migrate(xorm *mdb.Xorm, k string, v interface{}) {
 }
 
 func Migrate(xorm *mdb.Xorm) {
-	for k, v := range Models {
+	for k, v := range HubModels {
 		migrate(xorm, k, v)
 	}
 }
 
 func MigratePackage(xorm *mdb.Xorm, pkg string) {
-	for k, v := range Models {
+	for k, v := range HubModels {
 		if strings.HasPrefix(k, pkg) {
 			migrate(xorm, k, v)
 		}
@@ -38,7 +38,7 @@ func MigratePackage(xorm *mdb.Xorm, pkg string) {
 }
 
 func MigrateModel(xorm *mdb.Xorm, name string) {
-	for k, v := range Models {
+	for k, v := range HubModels {
 		if strings.HasSuffix(k, name) {
 			migrate(xorm, k, v)
 		}

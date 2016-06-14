@@ -11,7 +11,6 @@ var (
 const (
 	VendorMabetle    = "Mabetle"
 	VendorMabetleUrl = "http://www.mabetle.com"
-	ModeDev          = "dev"
 )
 
 var (
@@ -22,7 +21,6 @@ var (
 	VendorURL  = VendorMabetleUrl
 
 	LicenseTo = "demo"
-	RunMode   = "dev"
 
 	AccountSchema = "web_common"
 )
@@ -31,17 +29,3 @@ var (
 	KeyLicenseTo  = "license.to"
 	KeyVendorName = "vendor.name"
 )
-
-type License struct {
-	To string
-}
-
-type Vendor struct {
-	Name string
-	URL  string
-}
-
-type Version struct {
-	Main  string
-	Minus string
-}

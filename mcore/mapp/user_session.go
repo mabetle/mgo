@@ -34,9 +34,3 @@ func GetUserSessions(userName string) []string {
 	}
 	return as
 }
-
-func PutUserSessionKeyValues(kvs ...KeyValue) {
-	for _, kv := range kvs {
-		userSession[kv.Key()] = kv.Value()
-	}
-}

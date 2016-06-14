@@ -1,8 +1,6 @@
 package mcore
 
-import (
-	"log"
-)
+import "log"
 
 type StringKeyValueMap map[string]string
 
@@ -20,16 +18,16 @@ func (c StringKeyValueMap) IsContain(key string) bool {
 	return ok
 }
 
-func (c StringKeyValueMap) GetString(key string) string {
-	return c.GetStringWithDefault(key, "")
-}
-
-func (c StringKeyValueMap) GetStringWithDefault(key, defaultValue string) string {
+func (c StringKeyValueMap) GetStringWithDefault(key string, dv string) string {
 	if c.IsContain(key) {
 		return c[key]
 	}
 	log.Printf("Error: not contains key: %s", key)
-	return defaultValue
+	return dv
+}
+
+func (c StringKeyValueMap) GetString(key string) string {
+	return c.GetStringWithDefault(key, "")
 }
 
 func (c StringKeyValueMap) GetInt(key string) int {

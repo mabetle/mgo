@@ -1,3 +1,2 @@
-// package mcmd.
-// provide some functions for applications.
+// package mcmd provide some functions for applications.
 package mcmd

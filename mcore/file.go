@@ -25,6 +25,7 @@ func PrepareFile(location string) error {
 func NewFileWriter(location string) (io.Writer, error) {
 	location = ProcessDir(location)
 	fs, err := os.Create(location)
+	// when close it?
 	if err == os.ErrNotExist {
 		fs.Write([]byte{})
 		logger.Debugf("File:%s not exist, create one.")
@@ -144,11 +145,11 @@ func WriteFile(file string, content string) (n int, err error) {
 		return 0, err
 	}
 	fs, e := os.Create(file)
+	defer fs.Close()
 	if e != nil {
 		logger.Debugf("Create file error: File: %s, Error: %v", file, e)
 		return 0, e
 	}
-	defer fs.Close()
 	n, err = fs.WriteString(content)
 	return
 }

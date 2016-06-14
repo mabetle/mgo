@@ -4,5 +4,5 @@ package mcore
 
 // Validator
 type Validetor interface {
-	Validate(v interface{}) bool
+	Validate() bool
 }

@@ -5,6 +5,8 @@ var defaultResRolesText = `
 
 /Demo*=DEMO
 /Admin*=ADMIN
+/Root*=ROOT
+/SysAdmin*=SysAdmin
 
 # static assets
 /public*=ALL
@@ -24,5 +26,5 @@ var defaultResRolesText = `
 /AppAjax/*=ALL
 /Account*=ALL
 /AccountAjax/=ALL
-
+/All*=ALL
 `

@@ -1,9 +1,9 @@
 package mcmd
 
 import (
-	"fmt"
-	"github.com/mabetle/mgo/mcore"
 	"os"
+
+	"github.com/mabetle/mgo/mcore"
 )
 
 // return which app is run.
@@ -14,14 +14,4 @@ func AppName() string {
 // promote user input args to run application.
 func ReadNotBlankLineWithMsg(msg string) string {
 	return mcore.ReadNotBlankLineWithMsg(msg)
-}
-
-// Show end.
-func End() {
-	fmt.Println("Finished.")
-}
-
-// Equal to End()
-func Finished() {
-	End()
 }

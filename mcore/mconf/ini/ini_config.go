@@ -2,16 +2,19 @@ package ini
 
 import (
 	"fmt"
-	"github.com/robfig/config"
+
 	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/mconf"
+	"github.com/robfig/config"
 )
 
 // IniConfig
 // use robfig config as default
 // IniConfig implements KeyValueLoader mconf.Config interface.
 type IniConfig struct {
-	Locations []string
+	// extends config.Config
 	*config.Config
+	Locations []string
 }
 
 // NewIniConfig supports more than one location.
@@ -28,6 +31,12 @@ func NewIniConfig(locations ...string) *IniConfig {
 	}
 	c.Config = conf
 	return c
+}
+
+// NewConfig make sure IniConfig implements mcore.Config
+func NewConfig(locations ...string) mconf.Config {
+	iniConf := NewIniConfig(locations...)
+	return mconf.NewConfig(iniConf)
 }
 
 func (c IniConfig) LoadKeyValue() mcore.StringKeyValueMap {

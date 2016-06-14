@@ -28,13 +28,13 @@ var (
 )
 
 const (
-	KEY_HOST     = "db.host"
-	KEY_USER     = "db.user"
-	KEY_PASSWORD = "db.password"
-	KEY_DATABASE = "db.database"
-	KEY_PORT     = "db.port"
-	KEY_DRIVER   = "db.driver"
-	KEY_CONN_VAR = "db.connVar"
+	KeyHost     = "db.host"
+	KeyUser     = "db.user"
+	KeyPassword = "db.password"
+	KeyDatabase = "db.database"
+	KeyPort     = "db.port"
+	KeyDriver   = "db.driver"
+	KeyConnVar  = "db.connVar"
 )
 
 // NewDBConf
@@ -60,13 +60,13 @@ func NewDBConfFromConfig(c mconf.Config) *DBConf {
 	}
 
 	//load values from location
-	host = c.GetStringWithDefault(KEY_HOST, host)
-	user = c.GetStringWithDefault(KEY_USER, user)
-	password = c.GetStringWithDefault(KEY_PASSWORD, password)
-	database = c.GetStringWithDefault(KEY_DATABASE, database)
-	port = c.GetStringWithDefault(KEY_PORT, port)
-	driver = c.GetStringWithDefault(KEY_DRIVER, driver)
-	connVar = c.GetStringWithDefault(KEY_CONN_VAR, connVar)
+	host = c.GetStringWithDefault(KeyHost, host)
+	user = c.GetStringWithDefault(KeyUser, user)
+	password = c.GetStringWithDefault(KeyPassword, password)
+	database = c.GetStringWithDefault(KeyDatabase, database)
+	port = c.GetStringWithDefault(KeyPort, port)
+	driver = c.GetStringWithDefault(KeyDriver, driver)
+	connVar = c.GetStringWithDefault(KeyConnVar, connVar)
 	return NewDBConf()
 }
 
