@@ -2,6 +2,7 @@ package mdb
 
 import (
 	"fmt"
+
 	"github.com/mabetle/mgo/mcore"
 )
 
@@ -66,5 +67,5 @@ func (s Sql) ExecForHtml(q string, args []interface{}, renderArgs ...string) str
 	if err2 != nil {
 		return fmt.Sprintf(`<div class="error">Error: %v</div>`, err)
 	}
-	return fmt.Sprintf(`<div class="info">%n rows affected</div>`, n)
+	return fmt.Sprintf(`<div class="info">%v rows affected</div>`, n)
 }
