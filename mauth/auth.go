@@ -16,6 +16,7 @@ type ResRoles struct {
 const RolePrefix = "ROLE_"
 
 // ResRoleMap {res,roles}
+// holds datas
 var ResRoleMap = [][]string{}
 
 func RegAuthText(text string) error {
@@ -151,28 +152,11 @@ func IsCanAccessRes(checkRes, userRoles string) bool {
 	return CheckRoles(needRoles, userRoles)
 }
 
-// PrintIsCanAccessRes
-func PrintIsCanAccessRes(checkRes, userRoles string, expect bool) {
-	b := IsCanAccessRes(checkRes, userRoles)
-	if b == expect {
-		fmt.Printf("Passed\n")
-		return
-	}
-	fmt.Printf("CheckAuth, Res:%s UserRoles: %s Result:%v Expect:%v\n", checkRes, userRoles, b, expect)
-}
-
-// PrintResRoleAuthMap print.
-func PrintResRoleAuthMap() {
-	fmt.Printf("***ResRoleAuth Config***\n")
-	for _, rm := range ResRoleMap {
-		if len(rm) < 2 {
-			continue
-		}
-		fmt.Printf("\t%s : %s\n", rm[0], rm[1])
-	}
-}
-
+// LoadResRolesText load map from text
 func LoadResRolesText(text string) error {
+	// clear first
+	ClearAuthMap()
+
 	lines := strings.Split(text, "\n")
 	if len(lines) == 0 {
 		return fmt.Errorf("no lines")
@@ -209,7 +193,6 @@ func LoadAuthMapFile(location string) error {
 	return LoadResRolesText(text)
 }
 
-func InitAuthMap() {
-	fmt.Printf("***Init AuthMap\n")
-	LoadResRolesText(defaultResRolesText)
+func ClearAuthMap() {
+	ResRoleMap = [][]string{}
 }
