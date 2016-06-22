@@ -2,9 +2,10 @@ package mapp
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/mabetle/mgo/mcore"
 	"github.com/mabetle/mgo/mdb"
-	"strings"
 )
 
 var HubModels = make(map[string]interface{})
@@ -18,29 +19,29 @@ func RegModels(models ...interface{}) {
 	}
 }
 
-func migrate(xorm *mdb.Xorm, k string, v interface{}) {
+func migrate(xorm *mdb.Xorm, k string, v interface{}) error {
 	logger.Info("migrate model:", k)
-	xorm.Migrate(v)
+	return xorm.Migrate(v)
 }
 
-func Migrate(xorm *mdb.Xorm) {
-	for k, v := range HubModels {
-		migrate(xorm, k, v)
-	}
-}
-
-func MigratePackage(xorm *mdb.Xorm, pkg string) {
+func MigratePackage(xorm *mdb.Xorm, pkg string) *mcore.Results {
+	rs := mcore.NewResults()
 	for k, v := range HubModels {
 		if strings.HasPrefix(k, pkg) {
-			migrate(xorm, k, v)
+			err := migrate(xorm, k, v)
+			rs.Record(err, "migrate ", k)
 		}
 	}
+	return rs
 }
 
-func MigrateModel(xorm *mdb.Xorm, name string) {
+func MigrateModel(xorm *mdb.Xorm, name string) *mcore.Results {
+	rs := mcore.NewResults()
 	for k, v := range HubModels {
 		if strings.HasSuffix(k, name) {
-			migrate(xorm, k, v)
+			err := migrate(xorm, k, v)
+			rs.Record(err, "migrate ", k)
 		}
 	}
+	return rs
 }
