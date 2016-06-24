@@ -184,12 +184,12 @@ func LoadResRolesText(text string) error {
 
 // LoadAuthMapFile load.
 func LoadAuthMapFile(location string) error {
-	fmt.Printf("Load Res Auth Config from File: %s\n", location)
 	text, err := mcore.ReadFileAll(location)
 	if err != nil {
-		fmt.Printf("Error Load Auth File: %s\n", err)
+		logger.Warnf("Error Load Auth File: %s\n", err)
 		return err
 	}
+	logger.Infof("Load Res Auth Config from File: %s\n", location)
 	return LoadResRolesText(text)
 }
 

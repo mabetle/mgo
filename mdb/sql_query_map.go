@@ -1,12 +1,14 @@
 package mdb
 
+import "github.com/mabetle/mgo/mcore"
+
 // QueryForMaps query for maps
-// JSONDatas holds rows key and value
+// rowMaps holds rows key and value
 // columns holds include columns
 // good ways to store query result.
 // because map has no sequence concepts, so columns is needed when access
 // columns.
-func (s Sql) QueryForMaps(sql string, args ...interface{}) (JSONDatas []map[string]interface{}, columns []string, err error) {
+func (s Sql) QueryForMaps(sql string, args ...interface{}) (rowMaps []map[string]interface{}, columns []string, err error) {
 	rows, errQ := s.Query(sql, args...)
 	if errQ != nil {
 		err = errQ
@@ -24,11 +26,16 @@ func (s Sql) QueryForMaps(sql string, args ...interface{}) (JSONDatas []map[stri
 	}
 	for rows.Next() {
 		rows.Scan(scanArgs...)
-		record := make(map[string]interface{})
-		for i, col := range values {
-			record[columns[i]] = col
+		rowMap := make(map[string]interface{})
+		for i, value := range values {
+			sv := GetString(value)
+			if fv, err := mcore.NewString(sv).ToFloat64(); err == nil {
+				rowMap[columns[i]] = fv
+				continue
+			}
+			rowMap[columns[i]] = sv
 		}
-		JSONDatas = append(JSONDatas, record)
+		rowMaps = append(rowMaps, rowMap)
 	}
 	return
 }
