@@ -260,6 +260,15 @@ func SetFieldValue(v interface{}, field string, newValue interface{}) interface{
 	return v
 }
 
+// InvokeMethod
+func InvokeMethod(v interface{}, methodName string) string {
+	in := make([]reflect.Value, 0)
+	method := reflect.ValueOf(v).MethodByName(methodName)
+	r := method.Call(in)
+	result := fmt.Sprintf("%v", r[0])
+	return result
+}
+
 // PrintType print value type
 func PrintType(v interface{}) {
 	typ := reflect.TypeOf(v)
