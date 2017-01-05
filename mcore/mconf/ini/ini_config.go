@@ -24,7 +24,8 @@ func NewIniConfig(locations ...string) *IniConfig {
 	conf := config.NewDefault()
 	for _, location := range locations {
 		confItem, err := config.ReadDefault(location)
-		if logger.CheckError(err) {
+		// read config error
+		if err != nil {
 			continue
 		}
 		conf.Merge(confItem)
