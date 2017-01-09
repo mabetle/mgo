@@ -8,6 +8,7 @@ import (
 	"github.com/mabetle/mgo/mdb"
 )
 
+// HubModels store models
 var HubModels = make(map[string]interface{})
 
 func RegModels(models ...interface{}) {
