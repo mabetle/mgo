@@ -1,7 +1,5 @@
 package mcore
 
-import "log"
-
 type StringKeyValueMap map[string]string
 
 func NewStringKeyValueMap() StringKeyValueMap {
@@ -22,7 +20,7 @@ func (c StringKeyValueMap) GetStringWithDefault(key string, dv string) string {
 	if c.IsContain(key) {
 		return c[key]
 	}
-	log.Printf("Error: not contains key: %s", key)
+	//log.Printf("Error: not contains key: %s", key)
 	return dv
 }
 

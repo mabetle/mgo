@@ -5,7 +5,10 @@ import (
 	"fmt"
 
 	"github.com/mabetle/mgo/mcore"
+	"github.com/mabetle/mgo/mcore/appenv"
 )
+
+var KeyShowSql = "MDB_SHOW_SQL"
 
 // Sql wrap sqlDB and provide many functions.
 type Sql struct {
@@ -29,7 +32,7 @@ func NewSql(db *sql.DB) *Sql {
 	s := new(Sql)
 	s.DB = db
 	// default is show sql
-	s.ShowSql = true
+	s.ShowSql = appenv.GetBool(KeyShowSql, false)
 	s.Dialect = "mysql"
 	return s
 }

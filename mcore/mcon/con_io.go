@@ -36,10 +36,15 @@ func ReadNotBlankLine() (result string) {
 			break
 		}
 	}
+	result = strings.TrimSuffix(result, "\r")
+	result = strings.TrimSuffix(result, "\n")
 	return
 }
 
 func ReadNotBlankLineWithMsg(msg string) string {
 	fmt.Print(msg)
+	if !strings.HasSuffix(msg, ":") {
+		fmt.Print(":")
+	}
 	return ReadNotBlankLine()
 }

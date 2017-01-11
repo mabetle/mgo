@@ -8,7 +8,8 @@ import (
 )
 
 func (s String) ToInt() (int, error) {
-	return strconv.Atoi(string(s))
+	v := s.TrimSpace().TrimSuffix("\r").TrimSuffix("\n").TrimSpace().String()
+	return strconv.Atoi(v)
 }
 
 func (s String) ToIntNoError() int {

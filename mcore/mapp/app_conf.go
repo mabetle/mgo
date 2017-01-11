@@ -1,6 +1,8 @@
 package mapp
 
 import (
+	"log"
+
 	"github.com/mabetle/mgo/mcore/mconf"
 	"github.com/mabetle/mgo/mcore/mconf/ini"
 )
@@ -28,6 +30,7 @@ func LoadAppConf() {
 	if len(appConfLocations) == 0 {
 		panic("no app conf files")
 	}
+	log.Printf("Load app conf: %v", appConfLocations)
 	appConf = ini.NewConfig(appConfLocations...)
 	appConfLoaded = true
 }

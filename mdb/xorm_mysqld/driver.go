@@ -6,9 +6,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
+	"github.com/mabetle/mgo/mcore/appenv"
 	"github.com/mabetle/mgo/mdb"
 	"github.com/mabetle/mgo/mdb/dbconf"
 )
+
+var KeyShowSql = "MDB_SHOW_SQL"
 
 // NewXorm
 func NewXorm(conf *dbconf.DBConf) (*mdb.Xorm, error) {
@@ -30,7 +33,7 @@ func NewXorm(conf *dbconf.DBConf) (*mdb.Xorm, error) {
 	//engine.ShowErr = true
 	//engine.ShowWarn = false
 
-	engine.ShowSQL(true)
+	engine.ShowSQL(appenv.GetBool(KeyShowSql, false))
 
 	engine.SetTableMapper(core.SnakeMapper{})
 
